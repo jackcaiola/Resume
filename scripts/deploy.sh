@@ -11,7 +11,7 @@ nix-shell --command "trunk build"
 echo "Generating pdf..."
 nix-shell --command "./scripts/generate_pdf.sh"
 
-cp TroyNeubauer-Resume.pdf dist/
+cp JackCaiola-Resume.pdf dist/
 
 ls -lah dist
 echo "Uploading new resume..."
@@ -19,6 +19,6 @@ scp -r dist/* troy@10.222.0.1:/tmp/resume_data
 # /www/public/resume
 
 echo "Making new resume public..."
-ssh troy@10.222.0.1 "chown -R troy:www-data /tmp/resume_data && chmod -R u=rxw,g=xr,o=xr /tmp/resume_data && rm -rf /www/public/resume/ && mv /tmp/resume_data /www/public/resume/ && rm -rf /tmp/resume_data"
+ssh troy@10.222.0.1 "chown -R troy:www-data /tmp/resume_data && chmod -R u=rxw,g=xr,o=xr /tmp/resume_data && rm -rf /www/jack/public/resume/ && mv /tmp/resume_data /www/jack/public/resume/ && rm -rf /tmp/resume_data"
 
 echo "Updated resume successfully"

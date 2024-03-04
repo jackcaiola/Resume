@@ -1,13 +1,13 @@
 name: Jack Caiola
-source_code: https://github.com/jackcaiola/Resume
-host_link: jcaiola.com
+source_code: github.com/jackcaiola/Resume
+host_link: https://www.jcaiola.com/resume/
 email: jackcaiola@gmail.com
 phone_number:
   country_code: 1
   number: 2037319242
 location: Ridgefield
-linkedin_profile: https://www.linkedin.com/in/jack-caiola-0bb896215/
-github_profile: https://github.com/jackcaiola
+linkedin_profile: jack-caiola-0bb896215
+github_profile: jackcaiola
 about_me: >
   An aspiring Mechanical Engineer with hands-on experience. Passionate about UAV technologies and its further development. Actively engaged in multidisciplinary research opportunities and committed to practical applications of engineering principles.
 
@@ -68,7 +68,7 @@ experience:
     end: 2022-09-01
   location: Ridgefield
   duty:
-  - description: Manufacturing components using 3D printer technology, managing a small-scale prototype production line, and utilizing CAD software and embedded systems for in-field testing. Developed a mobile autonomous launch and recovery system for UAVs using Rust.
+  - description: Manufacturing components using 3D printer technology, managing a small-scale prototype production line, and utilizing CAD software and embedded systems for in-field testing. Assisted in the development of a mobile autonomous launch and recovery system for UAVs utilizng Rust.
     tags: [3D Printing, CATIA, Assembly Line Management]
 
 - title: Engineering Physics Propulsion Lab Member (EPPL)
