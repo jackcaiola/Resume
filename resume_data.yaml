@@ -95,7 +95,7 @@ experience:
     start: 2024-01-01
   location: Daytona Beach
   duty:
-  - description: Involved in R&D for UAV swarming technologies.
+  - description: Involved in R&D for UAV swarm mapping technologies.
     tags: [Ardupilot, Embedded Systems, AutoDesk]
 
 skills:
