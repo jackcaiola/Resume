@@ -19,6 +19,6 @@ scp -r dist/* troy@10.222.0.1:/tmp/resume_data
 # /www/public/resume
 
 echo "Making new resume public..."
-ssh troy@10.222.0.1 "chown -R troy:www-data /tmp/resume_data && chmod -R u=rxw,g=xr,o=xr /tmp/resume_data && rm -rf /www/jack/public/resume/ && mv /tmp/resume_data /www/jack/public/resume/ && rm -rf /tmp/resume_data"
+ssh troy@10.222.0.1 "chmod -R u=rxw,g=xr,o=xr /tmp/resume_data && rm -rf /www/jack/public/resume/ && mv /tmp/resume_data /www/jack/public/resume/ && rm -rf /tmp/resume_data"
 
 echo "Updated resume successfully"
