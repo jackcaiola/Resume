@@ -59,7 +59,7 @@ experience:
     tags: [Excel]
   - description: Assisting in embedded system design for the capture of weather data.
     tags: [Ansys, Embedded Systems, MATLAB, CATIA]
-
+    
 - title: Intern
   organization: TargetArm
   website: https://www.targetarm.com
@@ -71,6 +71,16 @@ experience:
   - description: Manufacturing components using 3D printer technology, managing a small-scale prototype production line, and utilizing CAD software and embedded systems for in-field testing. Assisted in the development of a mobile autonomous launch and recovery system for UAVs utilizng Rust.
     tags: [3D Printing, CATIA, Assembly Line Management]
 
+- title: Mechanical Engineer - Intern
+  organization: Bosch USA
+  period:
+    start: 2024-08-13
+    end: 2024-12-13
+  location: Charleston
+  duty:
+  - description: Partook in method modification/optimization through design, operation, and documentation related projects revolving around the greater understanding of large scale automotive part manufacturing and increasing OEE (Overall Equipment Effectiveness).
+    tags: [SAP, Excel, Ansys, Solidworks, BabtechQ, VBA]
+    
 - title: Engineering Physics Propulsion Lab Member (EPPL)
   organization: Embry Riddle Aeronautical University
   period:
@@ -102,23 +112,29 @@ skills:
 - category: Engineering Tools
   tags:
   - CATIA
+  - Solidworks
   - AutoDesk
   - Ansys
   - Excel
   - Embedded Systems
   - Ardupilot
   - Mission Planner
+  - SAP
+  - BabtechQ
 
 - category: Programming Languages
   tags:
   - MATLAB
+  - Rust
+  - Python
+  - VBA
 
 - category: Design and Prototyping
   tags:
   - CAD
   - 3D Printing
   - Assembly Line Management
-
+  - Ansys
 - category: Robotics
   tags:
   - ROS 1 Noetic
