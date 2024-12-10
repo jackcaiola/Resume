@@ -78,7 +78,7 @@ experience:
   location: Daytona Beach
   duty:
   - description: Aiding in the development of autonomous UAV swarm data collection through CAD Design, Embedded Systems, Mission Planner, Ardupilot, and more.
-    tags: [Autodesk, Ansys, Embedded Systems, Ardupilot, Mission Planner]
+    tags: [AutoDesk, Ansys, Embedded Systems, Ardupilot, Mission Planner]
 
 - title: OpenMutt R&D Member
   organization: EPPL
@@ -102,7 +102,6 @@ skills:
 - category: Engineering Tools
   tags:
   - CATIA
-  - Solidworks
   - AutoDesk
   - Ansys
   - Excel
@@ -112,10 +111,7 @@ skills:
 
 - category: Programming Languages
   tags:
-  - Rust
   - MATLAB
-  - Arduino
-  - Python
 
 - category: Design and Prototyping
   tags:

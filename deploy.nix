@@ -27,5 +27,5 @@ writeShellScriptBin "deploy" ''
 
   echo ""
   echo "Making new resume public..."
-  ssh troy@10.222.0.1 "chmod -R u=rxw,g=xr,o=xr /tmp/resume_data && rm -rf /www/troy/public/resume/ && cp -r /tmp/resume_data /www/troy/public/resume && echo "Updated resume successfully"" 
+  ssh troy@10.222.0.1 "chmod -R u=rxw,g=xr,o=xr /tmp/resume_data && rm -rf /www/jack/public/resume/ && cp -r /tmp/resume_data /www/jack/public/resume && echo "Updated resume successfully""
 ''
