@@ -21,6 +21,9 @@ locations:
 - city: Danbury
   state: CT
   country: US
+- city: Charleston
+  state: SC
+  country: US
 
 education:
 - institution: Embry Riddle Aeronautical University
@@ -125,8 +128,6 @@ skills:
 - category: Programming Languages
   tags:
   - MATLAB
-  - Rust
-  - Python
   - VBA
 
 - category: Design and Prototyping
