@@ -17,12 +17,16 @@ pub struct ResumeProps {
 pub enum Msg {
     AmHover,
     Clear,
+    SetTags(Vec<String>),
+    ToggleTag(String),
 }
 
 pub struct ResumeComponent {
     props: ResumeProps,
     link: ComponentLink<Self>,
     am_hover: bool,
+    selected_tags: Vec<String>,
+    pinned_tag: Option<String>,
 }
 
 impl Component for ResumeComponent {
@@ -34,6 +38,8 @@ impl Component for ResumeComponent {
             props,
             link,
             am_hover: false,
+            selected_tags: Vec::new(),
+            pinned_tag: None,
         }
     }
 
@@ -41,6 +47,21 @@ impl Component for ResumeComponent {
         match msg {
             Msg::AmHover => self.am_hover = true,
             Msg::Clear => self.am_hover = false,
+            Msg::SetTags(tags) => {
+                self.selected_tags = if tags.is_empty() {
+                    self.pinned_tag.iter().cloned().collect()
+                } else {
+                    tags
+                };
+            }
+            Msg::ToggleTag(tag) => {
+                self.pinned_tag = if self.pinned_tag.as_ref() == Some(&tag) {
+                    None
+                } else {
+                    Some(tag)
+                };
+                self.selected_tags = self.pinned_tag.iter().cloned().collect();
+            }
         };
         true
     }
@@ -78,7 +99,7 @@ impl Component for ResumeComponent {
                 </header>
                 <div class="main-column main-left">
                     <EducationComponent education=education />
-                    <SkillComponent skills=skills/>
+                    <SkillComponent skills=skills selected_tags=self.selected_tags.clone() on_tags=self.link.callback(Msg::SetTags) on_toggle=self.link.callback(Msg::ToggleTag)/>
                     { self.view_links() }
                 </div>
                 <div class="main-column main-right">
@@ -88,7 +109,7 @@ impl Component for ResumeComponent {
                             { &res.about_me }
                         </p>
                     </div>
-                    <ExperienceComponent experience=experience/>
+                    <ExperienceComponent experience=experience selected_tags=self.selected_tags.clone() on_tags=self.link.callback(Msg::SetTags)/>
                 </div>
             </div>
         }
@@ -121,7 +142,7 @@ impl ResumeComponent {
                     <li class="print-only">
                         { "View this resume as a WebAssembly app:" }
                         <p>
-                            <a href=format!("https://{}", &host_link)>
+                            <a href=host_link.clone()>
                                 <i class="fa"></i>{ host_link }
                             </a>
                         </p>

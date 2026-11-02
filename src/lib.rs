@@ -7,7 +7,6 @@ mod location;
 mod phone_number;
 mod resume;
 mod skills;
-mod tag_agent;
 mod types;
 
 use std::{collections::HashSet, rc::Rc};
@@ -81,10 +80,11 @@ pub fn load_resume() -> Result<Resume, String> {
     }
 
     for exp in &mut base.experience {
-        exp.parsed_location = Some(lookup_location(locations, &exp.location)?);
-        for duty in &mut exp.duty {
-            duty.tags.extend_from_slice(&exp.tags);
-        }
+        exp.parsed_location = if exp.location.is_empty() {
+            None
+        } else {
+            Some(lookup_location(locations, &exp.location)?)
+        };
     }
     for edu in &mut base.education {
         edu.parsed_location = Some(lookup_location(locations, &edu.location)?);
@@ -94,8 +94,11 @@ pub fn load_resume() -> Result<Resume, String> {
     let all_referenced_tags: HashSet<&str> = base
         .experience
         .iter()
-        .flat_map(|e| e.duty.iter())
-        .flat_map(|d| d.tags.iter())
+        .flat_map(|e| {
+            e.tags
+                .iter()
+                .chain(e.duty.iter().flat_map(|d| d.tags.iter()))
+        })
         .map(std::ops::Deref::deref)
         .collect();
 
@@ -123,8 +126,11 @@ pub fn load_resume() -> Result<Resume, String> {
         .experience
         .iter()
         .filter(|e| !e.archived)
-        .flat_map(|e| e.duty.iter())
-        .flat_map(|d| d.tags.iter())
+        .flat_map(|e| {
+            e.tags
+                .iter()
+                .chain(e.duty.iter().flat_map(|d| d.tags.iter()))
+        })
         .map(std::ops::Deref::deref)
         .collect();
 
@@ -144,6 +150,24 @@ mod tests {
     use super::*;
     #[test]
     fn test_load_resume() {
-        dbg!(load_resume().unwrap());
+        let resume = load_resume().unwrap();
+        let role = &resume.experience[0];
+        assert_eq!(role.title, "Layout Designer - Chassis Integration");
+        assert!(role
+            .tags
+            .iter()
+            .any(|tag| tag == "Class A Commercial Driver's License"));
+        let research = &resume.experience[1];
+        assert!(research.tags.iter().any(|tag| tag == "Python"));
+        assert!(research.tags.iter().any(|tag| tag == "ROS 2 Humble"));
+        let go_aero = research
+            .duty
+            .iter()
+            .find(|duty| duty.project.as_deref() == Some("ERAU GoAero Competition - Team Member"))
+            .unwrap();
+        assert!(go_aero.tags.iter().any(|tag| tag == "C++"));
+        assert!(!go_aero.tags.iter().any(|tag| tag == "Python"));
+        assert_eq!(resume.experience.len(), 5);
+        assert!(include_bytes!("../JackCaiola-Resume.pdf").starts_with(b"%PDF-"));
     }
 }

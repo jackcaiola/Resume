@@ -8,9 +8,11 @@ phone_number:
 location: Ridgefield
 linkedin_profile: jack-caiola-0bb896215
 github_profile: jackcaiola
-about_me: >
-  An aspiring Mechanical Engineer with hands-on experience. Passionate about UAV technologies and its further development. Actively engaged in multidisciplinary research opportunities and committed to practical applications of engineering principles.
-
+about_me: Mechanical engineering graduate with hands-on experience in mechanical design,
+  robotics, UAV research, embedded systems, prototyping, and automotive manufacturing.
+  Interested in advancing autonomous technologies through multidisciplinary research
+  and practical engineering, with experience in chassis integration, product development,
+  and workflow automation.
 locations:
 - city: Ridgefield
   state: CT
@@ -24,56 +26,113 @@ locations:
 - city: Charleston
   state: SC
   country: US
-
+- city: Brookfield
+  state: CT
+  country: US
 education:
-- institution: Embry Riddle Aeronautical University
-  major: Mechanical Engineering
-  description: Proficient with CATIA, Solidworks, Ansys, Excel, and MATLAB through engineering-specific classes.
+- institution: Embry-Riddle Aeronautical University
+  major: Mechanical Engineering - Robotics and Autonomous Systems
+  description: Coursework included CATIA, SolidWorks, Ansys, Excel, and MATLAB.
   period:
-    start: 2020-08-01
+    start: 2020-09-01
+    end: 2025-05-01
   degree: Bachelors
   location: Daytona Beach
-
 - institution: Arrow Aviation
-  major: Private Pilot Certification
-  description: Have flown Cessna Skyhawks and attended Ground School for understanding of regulations.
+  major: Flight Training
+  description: Flew Cessna Skyhawks and attended FAA ground school covering airspace,
+    weather, and safety regulations.
   period:
     start: 2016-06-01
+    display_label: Training began Jun 2016
   degree: NonDegree
   location: Danbury
-
-- institution: Wooster School
-  major: High School Diploma
-  description: Honor Roll since Freshman year. All High Honor Roll Junior year.
-  period:
-    start: 2016-08-01
-    end: 2020-06-01
-  degree: NonDegree
-  location: Danbury
-
 experience:
-- title: Undergraduate Researcher
-  organization: Embry Riddle Aeronautical University
+- title: Layout Designer - Chassis Integration
+  organization: McNeilus Trucks & Manufacturing (Oshkosh Corporation)
   period:
-    start: 2023-03-01
+    start: 2025-08-01
+  location: ''
+  duty:
+  - description: Support chassis layout and systems integration design using SolidWorks.
+    tags:
+    - Systems Integration
+    - SolidWorks
+  - description: Designed new products in SolidWorks and supported product rollout.
+    tags:
+    - SolidWorks
+  - description: Built automations to consolidate chassis integration data and generate
+      metrics for enforcing incoming chassis requirements across multiple OEMs.
+    tags:
+    - Systems Integration
+  tags:
+  - Class A Commercial Driver's License
+- title: Undergraduate Researcher
+  organization: Embry-Riddle Aeronautical University
+  period:
+    start: 2020-07-01
+    end: 2025-12-01
   location: Daytona Beach
   duty:
-  - description: Aiding in the development of the practical application of thermal energy storage systems.
-    tags: [Excel]
-  - description: Assisting in embedded system design for the capture of weather data.
-    tags: [Ansys, Embedded Systems, MATLAB, CATIA]
-    
-- title: Intern
-  organization: TargetArm
-  website: https://www.targetarm.com
+  - description: Supported research into practical applications of thermal energy
+      storage systems.
+    tags:
+    - Excel
+  - description: Assisted in embedded system design for autonomous weather data acquisition.
+    tags:
+    - Ansys
+    - Embedded Systems
+    - MATLAB
+    - CATIA
+  - description: Designed C++ control scripts to process four time-of-flight sensor
+      readings per second, model ground planes, assess landing viability, and calculate
+      adaptive servo offsets for a four-legged autonomous drone. Integrated the scripts
+      with a ROS 1 Noetic node for real-time actuation via Pololu Maestro controllers.
+    tags:
+    - C++
+    - ROS 1 Noetic
+    - Embedded Systems
+    project: ERAU GoAero Competition - Team Member
+    project_detail: Jun–Oct 2025 · Embry-Riddle Flight Research Laboratory
+  tags:
+  - Python
+  - ROS 2 Humble
+- title: Engineering Physics Propulsion Lab (EPPL) Member
+  organization: Embry-Riddle Aeronautical University
   period:
-    start: 2018-07-01
-    end: 2022-09-01
-  location: Ridgefield
+    start: 2024-01-01
+    end: 2025-12-01
+  location: Daytona Beach
   duty:
-  - description: Manufacturing components using 3D printer technology, managing a small-scale prototype production line, and utilizing CAD software and embedded systems for in-field testing. Assisted in the development of a mobile autonomous launch and recovery system for UAVs utilizng Rust.
-    tags: [3D Printing, CATIA, Assembly Line Management]
-
+  - description: Supported autonomous UAV swarm data collection using CAD, embedded
+      systems, Mission Planner, and ArduPilot.
+    tags:
+    - Autodesk
+    - Ansys
+    - Embedded Systems
+    - ArduPilot
+    - Mission Planner
+  - description: Developed an open-source quadruped robot to support multidisciplinary
+      research using ROS 1 Noetic and custom embedded control.
+    tags:
+    - ROS 1 Noetic
+    - CAD
+    - Embedded Systems
+    - C++
+    project: OpenMutt — Open-Source Quadruped Robot
+    project_detail: R&D Member
+  - description: Conducted research and development on UAV swarm mapping technologies
+      through simulation, embedded systems integration, and mission control logic.
+    tags:
+    - ArduPilot
+    - Embedded Systems
+    - Autodesk
+    - C++
+    project: SUAVE — Swarm Unmanned Aerial Vehicles using Emergence
+    project_detail: R&D Member
+  tags:
+  - Python
+  - ROS 2 Humble
 - title: Mechanical Engineer - Intern
   organization: Bosch USA
   period:
@@ -81,61 +140,63 @@ experience:
     end: 2024-12-13
   location: Charleston
   duty:
-  - description: Partook in method modification/optimization through design, operation, and documentation related projects revolving around the greater understanding of large scale automotive part manufacturing and increasing OEE (Overall Equipment Effectiveness).
-    tags: [SAP, Excel, Ansys, Solidworks, BabtechQ, VBA]
-    
-- title: Engineering Physics Propulsion Lab Member (EPPL)
-  organization: Embry Riddle Aeronautical University
+  - description: Contributed to process modification and optimization through design,
+      operations, and documentation projects supporting automotive component manufacturing
+      and overall equipment effectiveness (OEE).
+    tags:
+    - SAP
+    - Excel
+    - Ansys
+    - SolidWorks
+    - BabtechQ
+    - VBA
+- title: Intern
+  organization: TargetArm
+  website: https://www.targetarm.com
   period:
-    start: 2024-01-01
-  location: Daytona Beach
+    start: 2018-07-01
+    end: 2022-09-01
+  location: Brookfield
   duty:
-  - description: Aiding in the development of autonomous UAV swarm data collection through CAD Design, Embedded Systems, Mission Planner, Ardupilot, and more.
-    tags: [AutoDesk, Ansys, Embedded Systems, Ardupilot, Mission Planner]
-
-- title: OpenMutt R&D Member
-  organization: EPPL
-  period:
-    start: 2024-01-01
-  location: Daytona Beach
-  duty:
-  - description: Developing an open-source quadruped to increase multidisciplinary research opportunities, utilizing Ros 1 Noetic.
-    tags: [ROS 1 Noetic, CAD, Embedded Systems] 
-
-- title: Swarm Unmanned Aerial Vehicles using Emergence (SUAVE) R&D Member
-  organization: EPPL
-  period:
-    start: 2024-01-01
-  location: Daytona Beach
-  duty:
-  - description: Involved in R&D for UAV swarm mapping technologies.
-    tags: [Ardupilot, Embedded Systems, AutoDesk]
-
+  - description: Manufactured 3D-printed components, managed a small-scale prototype
+      production line, and used CAD software and embedded systems for field testing.
+      Assisted in developing a mobile autonomous UAV launch and recovery system using
+      Rust.
+    tags:
+    - 3D Printing
+    - CATIA
+    - Assembly Line Management
+    - Rust
 skills:
 - category: Engineering Tools
   tags:
   - CATIA
-  - Solidworks
-  - AutoDesk
+  - SolidWorks
+  - Autodesk
   - Ansys
   - Excel
   - Embedded Systems
-  - Ardupilot
+  - ArduPilot
   - Mission Planner
   - SAP
   - BabtechQ
-
 - category: Programming Languages
   tags:
   - MATLAB
   - VBA
-
+  - C++
+  - Rust
+  - Python
 - category: Design and Prototyping
   tags:
   - CAD
   - 3D Printing
   - Assembly Line Management
-  - Ansys
+  - Systems Integration
 - category: Robotics
   tags:
   - ROS 1 Noetic
+  - ROS 2 Humble
+- category: Licenses
+  tags:
+  - Class A Commercial Driver's License

@@ -1,27 +1,24 @@
-use std::collections::HashSet;
-use std::iter::FromIterator;
-use yew::agent::Bridged;
 use yew::prelude::*;
 use yewtil::NeqAssign;
 
-use crate::tag_agent::TagAgent;
 use crate::SkillCategory;
 
 #[derive(Clone, Properties, PartialEq)]
 pub struct SkillProps {
     pub skills: Vec<SkillCategory>,
+    pub selected_tags: Vec<String>,
+    pub on_tags: Callback<Vec<String>>,
+    pub on_toggle: Callback<String>,
 }
 
 pub enum Msg {
-    Select(Vec<String>),
     Hover(String),
     Clear,
+    Toggle(String),
 }
 
 pub struct SkillComponent {
     props: SkillProps,
-    _tag_agent: Box<dyn Bridge<TagAgent>>,
-    selected_tags: HashSet<String>,
     hovered: Option<String>,
     link: ComponentLink<Self>,
 }
@@ -31,12 +28,8 @@ impl Component for SkillComponent {
     type Properties = SkillProps;
 
     fn create(props: Self::Properties, link: ComponentLink<Self>) -> Self {
-        let callback = link.callback(Msg::Select);
-        let _tag_agent = TagAgent::bridge(callback);
         Self {
             props,
-            _tag_agent,
-            selected_tags: HashSet::new(),
             hovered: None,
             link,
         }
@@ -44,9 +37,15 @@ impl Component for SkillComponent {
 
     fn update(&mut self, msg: Self::Message) -> ShouldRender {
         match msg {
-            Msg::Select(tags) => self.selected_tags = HashSet::from_iter(tags.iter().cloned()),
-            Msg::Hover(tag) => self.hovered = Some(tag),
-            Msg::Clear => self.hovered = None,
+            Msg::Hover(tag) => {
+                self.props.on_tags.emit(vec![tag.clone()]);
+                self.hovered = Some(tag);
+            }
+            Msg::Clear => {
+                self.hovered = None;
+                self.props.on_tags.emit(Vec::new());
+            }
+            Msg::Toggle(tag) => self.props.on_toggle.emit(tag),
         };
         true
     }
@@ -58,7 +57,7 @@ impl Component for SkillComponent {
     fn view(&self) -> Html {
         html! {
             <>
-            <h2>{ "SELECTED SKILLS" }</h2>
+            <h2>{ "SKILLS" }</h2>
             <ul class="skill-list">
                 { for self.props.skills.iter().map(|cat| self.view_category(cat)) }
             </ul>
@@ -81,7 +80,12 @@ impl SkillComponent {
     }
 
     fn view_tag(&self, tag: &str) -> Html {
-        let mut class = if self.selected_tags.contains(tag) {
+        let mut class = if self
+            .props
+            .selected_tags
+            .iter()
+            .any(|selected| selected == tag)
+        {
             "tag-item tag-selected".to_string()
         } else {
             "tag-item".to_string()
@@ -94,10 +98,15 @@ impl SkillComponent {
                 class = format!("{} tag-selected tag-hover", class);
             }
         }
+        let focus_tag = tag.to_string();
+        let focus = self.link.callback(move |_| Msg::Hover(focus_tag.clone()));
+        let blur = self.link.callback(|_| Msg::Clear);
+        let click_tag = tag.to_string();
+        let click = self.link.callback(move |_| Msg::Toggle(click_tag.clone()));
         html! {
-            <div class=class onmouseover=mouseover onmouseout=mouseout>
+            <button type="button" class=class onclick=click onfocus=focus onblur=blur onmouseover=mouseover onmouseout=mouseout>
                 { tag }
-            </div>
+            </button>
         }
     }
 }

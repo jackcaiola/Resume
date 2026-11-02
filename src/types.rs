@@ -34,6 +34,7 @@ pub struct Location {
 
 #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
 pub struct DateRange {
+    pub display_label: Option<String>,
     pub start: NaiveDate,
     pub end: Option<NaiveDate>,
 }
@@ -75,6 +76,8 @@ pub struct Experience {
 
 #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
 pub struct Duty {
+    pub project: Option<String>,
+    pub project_detail: Option<String>,
     pub description: String,
     pub tags: Vec<String>,
 }

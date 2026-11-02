@@ -39,13 +39,13 @@ impl Component for LocationComponent {
         if city == "Remote" {
             html! {
                 <>
-                <i class="fas fa-map-marker-alt"></i>{ format!{"{}", city} }
+                <i class="fas fa-map-marker-alt"></i>{ format!("{}", city) }
                 </>
             }
         } else {
             html! {
                 <>
-                <i class="fas fa-map-marker-alt"></i>{ format!{"{}, {}{}", city, state, country_string} }
+                <i class="fas fa-map-marker-alt"></i>{ format!("{}, {}{}", city, state, country_string) }
                 </>
             }
         }

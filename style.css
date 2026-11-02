@@ -341,3 +341,18 @@ h4 a {
     }
 
 }
+.project-title { font-weight: bold; color: var(--tint); margin-top: 8px; }
+.project-detail { font-size: 0.82rem; margin: 3px 0 6px; color: var(--text-light); }
+.duty-selected { background: #e0f2ed; color: var(--text-dark); }
+.tag-item { cursor: pointer; background: white; font-family: inherit; }
+@media print {
+    html, body { font-size: 11px; }
+    .duty-item, .experience-list > li { break-inside: avoid; }
+    .main-header { break-after: avoid; }
+    .duty-selected { background: inherit; }
+}
+@media (max-width: 760px) {
+    .content { padding: 1.5rem; }
+    .main-column { float: none; width: 100%; margin: 0; }
+    .main-header-name { font-size: 2.2rem; }
+}

@@ -1,6 +1,12 @@
 # Resume
 
-My resume.
+My resume. Content lives in `resume_data.yaml`; the Yew components render it at `/resume/`.
+
+Hover or focus a skill, experience title, or project bullet to show related skills and experience. Click a skill to pin its selection; click it again to clear. Role-level tags belong on the role title; project-specific tags stay on the corresponding bullet.
+
+`Duty.project` and `Duty.project_detail` render nested project headings. `DateRange.display_label` supports dates such as flight training with an unconfirmed completion date. Experience locations may be blank when unspecified.
+
+The PDF download is `JackCaiola-Resume.pdf`, copied into `dist/` by Trunk. Regenerate it from the built site's print view when content changes. A repository commit does not by itself deploy the website.
 
 
 ### Local development

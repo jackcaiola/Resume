@@ -57,7 +57,7 @@ impl Component for EducationComponent {
 impl EducationComponent {
     fn view_entry(&self, edu: &Education) -> Html {
         let title = match edu.degree {
-            DegreeKind::NonDegree => "Non-Degree".to_owned(),
+            DegreeKind::NonDegree => edu.major.to_string(),
             DegreeKind::License => edu.major.to_string(),
             _ => format!("{}: {}", edu.degree, edu.major),
         };

@@ -35,6 +35,11 @@ impl Component for DateRangeComponent {
     }
 
     fn view(&self) -> Html {
+        if let Some(label) = &self.props.period.display_label {
+            return html! {
+                <><i class="far fa-calendar-alt"></i>{ label }</>
+            };
+        }
         let start = format_month(&self.props.period.start);
         let end = if let Some(end) = &self.props.period.end {
             format_month(end)
