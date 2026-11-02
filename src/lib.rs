@@ -166,6 +166,10 @@ mod tests {
             .find(|duty| duty.project.as_deref() == Some("ERAU GoAero Competition - Team Member"))
             .unwrap();
         assert!(go_aero.tags.iter().any(|tag| tag == "C++"));
+        assert_eq!(
+            go_aero.project_detail.as_deref(),
+            Some("Jun 2025 – Oct 2025 · Embry-Riddle Flight Research Laboratory")
+        );
         assert!(!go_aero.tags.iter().any(|tag| tag == "Python"));
         assert_eq!(resume.experience.len(), 5);
         assert!(include_bytes!("../JackCaiola-Resume.pdf").starts_with(b"%PDF-"));
