@@ -45,14 +45,13 @@
         
       in {
         packages.wasm = wasm;
+        # Tests and ordinary development do not require a browser.
         devShells.default = pkgs.mkShell {
-          packages = with pkgs; [
-            rust-pkgs
-            google-chrome
-            trunk
-            generate-pdf
-            deploy
-          ];
+          packages = [ rust-pkgs pkgs.trunk ];
+        };
+        # PDF generation and server upload are explicit deployment operations.
+        devShells.deploy = pkgs.mkShell {
+          packages = [ rust-pkgs pkgs.trunk generate-pdf deploy ];
         };
       });
 }

@@ -26,7 +26,7 @@ trunk serve
 Trunk serve will recompile the webapp if any files are modified.
 
 ### Deploying
-Once in a nix shell run `deploy` or if outside run `nix develop --command deploy`. This will:
+Run `nix develop .#deploy --command deploy` to enter the browser-enabled deployment environment and publish. The default `nix develop` shell is browser-free so tests do not depend on Chrome downloads. Deployment will:
 1. Compile the rust code to a wasm executable
 2. Create wasm js wrapper
 3. Copy `index.html`, `style.css`, etc into the directory that will become the webserver
